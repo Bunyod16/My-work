@@ -1,5 +1,6 @@
 #this is a python immitation of a russian card game Durak
 
+import time
 from enum import Enum
 from random import *
 from enum import IntEnum
@@ -63,16 +64,20 @@ def draw_deck(deck):
 create_deck()
 partial_deck = list(full_deck)
 dealingplayers()
+
 def game():
     
     for x in range(0,len(playerdeck)):
         
+        #GRAPHICAL
         print('You have:')
         
         for x in range(0,len(playerdeck)):
             print(playerdeck[x].card)
         print(len(playerdeck))
-        
+        ###############
+
+        #Picking a random number to pick a card
         randomint = randint(0,len(playerdeck)-1)
     
     
@@ -86,9 +91,31 @@ def game():
         playerdeck.pop(playerscard)
         aideck.pop(aiscards)
 
-while win not True:
+#while win not True:
+#    game():
+end = False
+def test():
+    
 
+        for x in range(len(playerdeck)):
+            print(x,playerdeck[x].card,playerdeck[x].suit)
+            
+        player = int(input('Which card do you want to pick?: '))
+        try:
+
+            print('You picked: ',playerdeck[player].card,playerdeck[player].suit)
+            time.sleep(3)
+            playerdeck.pop(player)
+            if len(playerdeck) < 1:
+                end = False
+            else: end = True
+        except:
+            print('Your Index was out of range!!!')
+            time.sleep(2)
+
+        
+while end == False:
+    test()
 
 #for x in playerdeck:
 #   print(playerdeck
-
